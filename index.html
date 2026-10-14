@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paging — One Page at a Time</title>
+
+  <!-- Information for search engines -->
+  <meta name="description" content="Paging is a free reading tracker. Search books, save them to your library, track your progress, rate them and keep personal notes.">
+  <meta name="keywords" content="reading tracker, book tracker, book search, my library, reading progress, book notes, book rating, want to read, currently reading, finished books, Open Library, Google Books">
+  <meta name="author" content="Cardeal Felisberto">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#7B1E2E">
+
+  <!-- Open Graph: preview card when the link is shared on Facebook, WhatsApp or LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Paging">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Paging — One Page at a Time">
+  <meta property="og:description" content="Search books, track your reading progress, rate them and keep your notes.">
+  <meta property="og:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+  <meta property="og:image:alt" content="Paging reading tracker">
+  <meta property="og:url" content="https://YOUR-SITE-URL/index.html">
+
+  <!-- Twitter / X preview card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Paging — One Page at a Time">
+  <meta name="twitter:description" content="Search books, track your reading progress, rate them and keep your notes.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+
+  <!-- Icon, fonts and styles -->
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- One JavaScript module starts the whole page (type="module" enables import/export) -->
+  <script type="module" src="js/main.mjs"></script>
+</head>
+
+<body data-page="home" data-nav="home">
+  <!-- Header, bottom navigation, footer and reset dialog are inserted by layout.mjs -->
+  <header id="site-header" class="site-header"></header>
+
+  <main class="container">
+    <noscript>
+      <p class="status error">Paging needs JavaScript to work. Please enable it in your browser.</p>
+    </noscript>
+
+    <!-- Welcome banner: greeting, search form and quick-search chips -->
+    <section class="hero-banner hero-banner--welcome">
+      <div class="hero-content">
+        <h1 id="greeting">Good morning,</h1>
+        <p class="hero-sub">Keep turning the pages!</p>
+
+        <form id="search-form" class="search-form" role="search">
+          <label for="search-input" class="visually-hidden">Search for books, authors or keywords</label>
+          <input id="search-input" type="search" placeholder="Search for books, authors or keywords..." autocomplete="off" required minlength="2">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <div class="chips" aria-label="Quick searches">
+          <button type="button" class="chip" data-query="Atomic Habits">Atomic Habits</button>
+          <button type="button" class="chip" data-query="Chinua Achebe">Chinua Achebe</button>
+          <button type="button" class="chip" data-query="Mia Couto">Mia Couto</button>
+          <button type="button" class="chip" data-query="javascript">javascript</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search results: hidden until the first search; cards are created by ui.mjs -->
+    <section id="results-section" class="block" aria-labelledby="results-title" hidden>
+      <div class="section-head">
+        <h2 id="results-title">Search results</h2>
+        <button type="button" id="clear-results" class="link-btn">Clear results</button>
+      </div>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <ul id="results" class="book-grid"></ul>
+    </section>
+
+    <!-- Four statistic cards, filled from the saved library -->
+    <section id="stat-cards" class="stats-row" aria-label="Reading statistics"></section>
+
+    <div class="home-columns">
+      <!-- Main column: books currently being read -->
+      <section class="block" aria-labelledby="reading-title">
+        <div class="section-head">
+          <h2 id="reading-title">Currently Reading</h2>
+          <a href="library.html?status=reading">View all</a>
+        </div>
+        <div id="currently-reading" class="reading-grid"></div>
+      </section>
+
+      <!-- Side column: newest books and the random book picker -->
+      <aside class="block side-column">
+        <section aria-labelledby="recent-title">
+          <div class="section-head">
+            <h2 id="recent-title">Recently Added</h2>
+            <a href="library.html">View all</a>
+          </div>
+          <ul id="recent" class="recent-list"></ul>
+        </section>
+
+        <section class="card picker" aria-labelledby="picker-title">
+          <h3 id="picker-title">Random Book Picker</h3>
+          <p>Not sure what to read next?</p>
+          <button type="button" id="pick-book" class="btn btn-primary">Pick a Book</button>
+          <div id="picker-result" class="picker-result" aria-live="polite"></div>
+        </section>
+      </aside>
+    </div>
+
+    <!-- Dark banner with rotating reading quotes (quotes.mjs) -->
+    <section class="hero-banner hero-banner--cta" aria-label="Quotes about reading">
+      <div class="hero-content">
+        <p class="quote-text quote-in" id="quote-text">Good books build better tomorrows.</p>
+        <div class="quote-dots" id="quote-dots"></div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

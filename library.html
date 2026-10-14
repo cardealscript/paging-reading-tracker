@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Library — Paging</title>
+
+  <!-- Information for search engines -->
+  <meta name="description" content="Your personal library on Paging. Filter saved books by reading status, category and rating, sort them and follow your reading progress.">
+  <meta name="keywords" content="my library, saved books, reading status, book filters, book ratings, reading progress, want to read, finished books">
+  <meta name="author" content="Cardeal Felisberto">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#7B1E2E">
+
+  <!-- Open Graph: preview card when the link is shared on Facebook, WhatsApp or LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Paging">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="My Library — Paging">
+  <meta property="og:description" content="Your saved books, reading status, ratings and progress in one place.">
+  <meta property="og:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+  <meta property="og:image:alt" content="Paging reading tracker">
+  <meta property="og:url" content="https://YOUR-SITE-URL/library.html">
+
+  <!-- Twitter / X preview card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Library — Paging">
+  <meta name="twitter:description" content="Your saved books, reading status, ratings and progress in one place.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+
+  <!-- Icon, fonts and styles -->
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- One JavaScript module starts the whole page (type="module" enables import/export) -->
+  <script type="module" src="js/main.mjs"></script>
+</head>
+
+<body data-page="library" data-nav="library">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="container library-layout">
+    <!-- Sidebar: status buttons, filters and sorting -->
+    <aside class="sidebar card" aria-label="Library filters">
+      <h2 class="sidebar-title">My Library</h2>
+      <div id="status-list" class="status-list"></div>
+
+      <h3>Filters</h3>
+      <div class="filter-fields">
+        <label>Category
+          <select id="filter-category"></select>
+        </label>
+        <label>Rating
+          <select id="filter-rating">
+            <option value="all">Any rating</option>
+            <option value="5">5 stars</option>
+            <option value="4">4 stars and up</option>
+            <option value="3">3 stars and up</option>
+            <option value="unrated">Unrated</option>
+          </select>
+        </label>
+        <label>Sort by
+          <select id="sort-by">
+            <option value="recent">Recently added</option>
+            <option value="title">Title A–Z</option>
+            <option value="author">Author A–Z</option>
+            <option value="rating">Highest rated</option>
+            <option value="progress">Most progress</option>
+          </select>
+        </label>
+      </div>
+      <button type="button" id="reset-filters" class="btn btn-outline">Reset Filters</button>
+    </aside>
+
+    <!-- Main area: title, library search and the grid of saved books -->
+    <section class="library-main">
+      <noscript>
+        <p class="status error">Paging needs JavaScript to work. Please enable it in your browser.</p>
+      </noscript>
+      <div class="library-head">
+        <div>
+          <h1>My Library</h1>
+          <p class="muted">Manage your books, track your progress, and keep your reading journey organized.</p>
+        </div>
+        <a class="btn btn-primary" href="index.html#search">+ Add Book</a>
+      </div>
+
+      <div class="library-tools">
+        <label for="library-search" class="visually-hidden">Search your library</label>
+        <input id="library-search" type="search" placeholder="Search your library..." autocomplete="off">
+        <button type="button" class="btn btn-outline" data-open-reset>Reset Reading Data</button>
+      </div>
+
+      <p id="library-count" class="status" role="status" aria-live="polite"></p>
+      <ul id="library-grid" class="library-grid"></ul>
+    </section>
+  </main>
+</body>
+
+</html>

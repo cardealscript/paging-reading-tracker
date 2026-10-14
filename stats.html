@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics — Paging</title>
+
+  <!-- Information for search engines -->
+  <meta name="description" content="Reading statistics on Paging: books by status, pages read, top rated books and your monthly reading activity.">
+  <meta name="keywords" content="reading statistics, reading charts, pages read, top rated books, reading activity, book tracker">
+  <meta name="author" content="Cardeal Felisberto">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#7B1E2E">
+
+  <!-- Open Graph: preview card when the link is shared on Facebook, WhatsApp or LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Paging">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Statistics — Paging">
+  <meta property="og:description" content="Charts and numbers about your reading journey.">
+  <meta property="og:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+  <meta property="og:image:alt" content="Paging reading tracker">
+  <meta property="og:url" content="https://YOUR-SITE-URL/stats.html">
+
+  <!-- Twitter / X preview card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Statistics — Paging">
+  <meta name="twitter:description" content="Charts and numbers about your reading journey.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+
+  <!-- Icon, fonts and styles -->
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- One JavaScript module starts the whole page (type="module" enables import/export) -->
+  <script type="module" src="js/main.mjs"></script>
+</head>
+
+<body data-page="stats" data-nav="stats">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="container">
+    <noscript>
+      <p class="status error">Paging needs JavaScript to work. Please enable it in your browser.</p>
+    </noscript>
+    <h1>Reading Statistics</h1>
+    <p class="muted">See your reading journey at a glance.</p>
+
+    <!-- Summary cards -->
+    <section id="stat-cards" class="stats-row" aria-label="Summary"></section>
+
+    <!-- Four panels filled by stats-page.mjs (charts are pure CSS) -->
+    <div class="stats-grid">
+      <section class="card">
+        <h2>Books by Status</h2>
+        <div id="status-chart"></div>
+      </section>
+      <section class="card">
+        <h2>Reading Progress</h2>
+        <div id="progress-chart"></div>
+      </section>
+      <section class="card">
+        <h2>Top Rated Books</h2>
+        <ol id="top-rated" class="top-list"></ol>
+      </section>
+      <section class="card">
+        <h2>Reading Activity</h2>
+        <div id="activity-chart"></div>
+      </section>
+    </div>
+
+    <button type="button" class="btn btn-outline reset-link" data-open-reset>Reset Reading Data</button>
+  </main>
+</body>
+
+</html>

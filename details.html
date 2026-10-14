@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Details — Paging</title>
+
+  <!-- Information for search engines -->
+  <meta name="description" content="Book description, details and similar books, with a personal tracker for reading progress, status, rating and notes.">
+  <meta name="keywords" content="book details, book description, reading tracker, book notes, book rating, similar books">
+  <meta name="author" content="Cardeal Felisberto">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#7B1E2E">
+
+  <!-- Open Graph: preview card when the link is shared on Facebook, WhatsApp or LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Paging">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Book Details — Paging">
+  <meta property="og:description" content="Book details and a personal reading tracker.">
+  <meta property="og:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+  <meta property="og:image:alt" content="Paging reading tracker">
+  <meta property="og:url" content="https://YOUR-SITE-URL/details.html">
+
+  <!-- Twitter / X preview card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Book Details — Paging">
+  <meta name="twitter:description" content="Book details and a personal reading tracker.">
+  <meta name="twitter:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+
+  <!-- Icon, fonts and styles -->
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- One JavaScript module starts the whole page (type="module" enables import/export) -->
+  <script type="module" src="js/main.mjs"></script>
+</head>
+
+<body data-page="details" data-nav="library">
+  <header id="site-header" class="site-header"></header>
+
+  <!-- The whole page content is drawn here by details.mjs -->
+  <main class="container" id="details-root">
+    <p class="status">Loading book…</p>
+    <noscript>
+      <p class="status error">Paging needs JavaScript to work. Please enable it in your browser.</p>
+    </noscript>
+  </main>
+</body>
+
+</html>
