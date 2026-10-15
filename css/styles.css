@@ -630,25 +630,37 @@ input[type=number]:focus {
 }
 
 .quote-dot {
-  width: .6rem;
-  height: .6rem;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.quote-dot::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
   border-radius: 99px;
   background: rgba(255, 255, 255, .4);
-  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   transition: width .3s, background-color .3s;
 }
 
-.quote-dot:hover {
+.quote-dot:hover::before {
   background: rgba(255, 255, 255, .75);
 }
 
-.quote-dot.active {
-  width: 1.6rem;
+.quote-dot.active::before {
+  width: 26px;
   background: var(--white);
 }
-
 
 /* =====================================================================
    [07] STAT CARDS
@@ -2005,11 +2017,6 @@ dialog p {
   position: relative;
 }
 
-.quote-dot::after {
-  content: "";
-  position: absolute;
-  inset: -.8rem -.3rem;
-}
 
 @media (max-width: 720px) {
   .hero-banner .chip {
