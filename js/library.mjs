@@ -28,10 +28,16 @@ export function initLibrary() {
     count: document.querySelector("#library-count"),
   };
 
-  // Start from the saved filters; a link such as library.html?status=reading wins
+  // Load previously saved filters
   let filters = { ...defaultFilters, ...(getFilters() || {}) };
+
+  // Check whether the URL specifies a reading status
   const urlStatus = new URLSearchParams(location.search).get("status");
-  if (STATUSES.includes(urlStatus)) filters.status = urlStatus;
+
+  // A valid URL status takes priority.
+  // Without one, show books from all statuses.
+  filters.status = STATUSES.includes(urlStatus) ? urlStatus : "all";
+
 
   // Redraws only the list of books and the counter (used while typing)
   function renderList() {

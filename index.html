@@ -63,7 +63,7 @@
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
 
-        <div class="chips" aria-label="Quick searches">
+        <div class="chips" role="group" aria-label="Quick searches">
           <button type="button" class="chip" data-query="Atomic Habits">Atomic Habits</button>
           <button type="button" class="chip" data-query="Chinua Achebe">Chinua Achebe</button>
           <button type="button" class="chip" data-query="Mia Couto">Mia Couto</button>
@@ -90,7 +90,7 @@
       <section class="block" aria-labelledby="reading-title">
         <div class="section-head">
           <h2 id="reading-title">Currently Reading</h2>
-          <a href="library.html?status=reading">View all</a>
+          <a href="library.html?status=reading" aria-label="View all books you are currently reading">View all</a>
         </div>
         <div id="currently-reading" class="reading-grid"></div>
       </section>
@@ -100,7 +100,7 @@
         <section aria-labelledby="recent-title">
           <div class="section-head">
             <h2 id="recent-title">Recently Added</h2>
-            <a href="library.html">View all</a>
+            <a href="library.html" aria-label="View all recently added books">View all</a>
           </div>
           <ul id="recent" class="recent-list"></ul>
         </section>

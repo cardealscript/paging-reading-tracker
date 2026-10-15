@@ -176,7 +176,7 @@ ol {
   width: 1px;
   height: 1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   white-space: nowrap;
 }
 
@@ -614,13 +614,11 @@ input[type=number]:focus {
   from {
     opacity: 0;
     transform: translateY(16px);
-    filter: blur(4px);
   }
 
   to {
     opacity: 1;
     transform: none;
-    filter: blur(0);
   }
 }
 
@@ -1983,5 +1981,38 @@ dialog p {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+  }
+}
+
+/* ---------- Layout stability ----------
+   The header and the statistic cards are created by JavaScript after the
+   page first appears. Reserving their height from the start stops the
+   content from jumping down when they are inserted (Cumulative Layout Shift). */
+.site-header {
+  min-height: 3.9rem;
+}
+
+.stats-row {
+  min-height: 5.5rem;
+}
+
+@media (max-width: 720px) {
+  .stats-row { min-height: 25rem; }   /* four cards stacked, one per row */
+}
+
+/* Larger tap areas without changing how the elements look */
+.quote-dot {
+  position: relative;
+}
+
+.quote-dot::after {
+  content: "";
+  position: absolute;
+  inset: -.8rem -.3rem;
+}
+
+@media (max-width: 720px) {
+  .hero-banner .chip {
+    min-height: 2.2rem;
   }
 }
