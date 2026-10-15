@@ -5,6 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page not found — Paging</title>
+    <!-- On GitHub Pages the site lives inside /paging-reading-tracker/;
+           on a local server it lives at the root. This picks the right base
+           so the 404 page finds its CSS, JavaScript and images at any address. -->
+    <script>
+      const base = document.createElement("base");
+      base.href = location.hostname.endsWith("github.io") ? "/paging-reading-tracker/" : "/";
+      document.head.prepend(base);
+    </script>
 
   <!-- Information for search engines -->
   <meta name="description" content="The page you are looking for does not exist. Go back to the Paging home page to search books and track your reading.">
@@ -19,15 +27,15 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Page not found — Paging">
   <meta property="og:description" content="Page not found.">
-  <meta property="og:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+  <meta property="og:image" content="https://cardealscript.github.io/paging-reading-tracker/images/og-cover.jpg">
   <meta property="og:image:alt" content="Paging reading tracker">
-  <meta property="og:url" content="https://YOUR-SITE-URL/404.html">
+  <meta property="og:url" content="https://cardealscript.github.io/paging-reading-tracker/404.html">
 
   <!-- Twitter / X preview card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Page not found — Paging">
   <meta name="twitter:description" content="Page not found.">
-  <meta name="twitter:image" content="https://YOUR-SITE-URL/images/og-cover.jpg">
+  <meta name="twitter:image" content="https://cardealscript.github.io/paging-reading-tracker/images/og-cover.jpg">
 
   <!-- Icon, fonts and styles -->
   <link rel="icon" type="image/svg+xml" href="images/logo.svg">
